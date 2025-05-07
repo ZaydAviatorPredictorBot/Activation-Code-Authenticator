@@ -1,117 +1,68 @@
-/* General styles */
 body {
+    background-color: #000;
+    color: #00ff00;
     font-family: 'Courier New', Courier, monospace;
-    background-color: black;
-    color: #00FF00;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    position: relative;
 }
 
-/* Terminal UI Styles */
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    color: #00FF00;
-    z-index: 1;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #111;
+    border: 1px solid #0f0;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00ff00aa;
 }
 
-h1, h2 {
-    font-size: 28px;
-    text-transform: uppercase;
+h1, h2, p {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
 }
 
-input {
-    background-color: black;
-    color: #00FF00;
-    border: 1px solid #00FF00;
+input[type="text"] {
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
     padding: 10px;
-    margin: 10px;
-    font-size: 18px;
-    text-align: center;
+    width: 90%;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-button {
-    background-color: #1E1E1E;
-    color: #FF5733;
-    border: 2px solid #FF5733;
-    padding: 15px 30px;
-    font-size: 18px;
-    text-transform: uppercase;
+.btn {
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 0 10px #00ff00;
 }
 
-button:hover {
-    background-color: #FF5733;
-    color: black;
+.btn:hover {
+    background-color: #0f0;
+    color: #000;
 }
 
-button:focus {
-    outline: none;
-}
-
-.watermark {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    opacity: 0.5;
-    font-size: 14px;
-    color: #800080;
-    font-style: italic;
-}
-
-/* Hidden elements */
 .hidden {
     display: none;
 }
 
-/* Step-specific styles */
-.step {
-    display: none;
-}
-
-/* Flashing popup styles */
 .popup {
-    position: fixed;
-    top: 20%;
-    left: 20%;
-    background-color: #FF0000;
-    color: #FFFFFF;
+    background-color: #111;
+    color: #f00;
     padding: 20px;
-    border-radius: 10px;
-    width: 60%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+    border: 1px solid red;
+    box-shadow: 0 0 10px red;
+    margin-top: 20px;
+}
+
+.watermark {
     text-align: center;
-}
-
-.popup p {
-    margin: 10px 0;
-    font-size: 18px;
-}
-
-.popup.flash {
-    animation: flash 1s infinite alternate;
-}
-
-@keyframes flash {
-    0% {
-        background-color: #FF0000;
-    }
-    100% {
-        background-color: #FFFF00;
-        color: black;
-    }
-}
-
-/* Terminal feel for input fields */
-input, button {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    color: #333;
+    margin-top: 40px;
+    font-size: 12px;
 }
