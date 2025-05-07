@@ -1,69 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Zayd Software Company Activation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
     <div class="container" id="welcomeScreen">
-        <h1>Welcome to the Zayd Software Company Activation</h1>
-        <p>Please ensure you have the correct credentials to proceed.</p>
-        
+        <h1>Welcome to Zayd Software Activation</h1>
+        <p>Initializing credential interface...</p>
         <button class="btn" id="startVerificationBtn">Start Verification</button>
     </div>
 
-    <div class="watermark">Software developed by Zayd</div>
-
-    <!-- Step 2: Betting Site Name -->
-    <div class="container step hidden" id="step2">
-        <h2>Enter your Betting Site Name (No spaces):</h2>
+    <div class="container hidden" id="step2">
+        <h2>Enter your Betting Site Name:</h2>
         <input type="text" id="bettingSiteName" />
         <button class="btn" id="continueStep2">Continue</button>
     </div>
 
-    <!-- Step 3: Betting Site ID -->
-    <div class="container step hidden" id="step3">
+    <div class="container hidden" id="step3">
         <h2>Enter your Betting Site ID:</h2>
         <input type="text" id="bettingSiteID" />
         <button class="btn" id="continueStep3">Continue</button>
     </div>
 
-    <!-- Step 4: Registered Country -->
-    <div class="container step hidden" id="step4">
+    <div class="container hidden" id="step4">
         <h2>Enter your Registered Country:</h2>
         <input type="text" id="country" />
         <button class="btn" id="continueStep4">Continue</button>
     </div>
 
-    <!-- Step 5: Country Code -->
-    <div class="container step hidden" id="step5">
+    <div class="container hidden" id="step5">
         <h2>Enter your Country Code:</h2>
         <input type="text" id="countryCode" />
         <button class="btn" id="completeVerification">Complete Verification</button>
     </div>
 
-    <!-- Step 6: Authenticator Code -->
-    <div class="container step hidden" id="step6">
+    <div class="container hidden" id="step6">
         <h2>Enter your 4-Digit Authenticator Code:</h2>
         <input type="text" id="authenticatorCode" />
         <button class="btn" id="submitBtn">Submit</button>
     </div>
 
-    <!-- Flashing Terminal Popup -->
-    <div class="popup hidden" id="terminalPopup">
-        <p><strong>AviatorBot/Localdevicebrowser/BettingSiteID are connected successfully.</strong></p>
-        <p>Signals have been deciphered successfully. All signals injected.</p>
-        <p><strong>Error: IP address mismatch detected.</strong></p>
-        <p>There is a discrepancy between the registered country IP and your current network configuration.</p>
-        <p><strong>Note:</strong> If you're using a VPN/Proxy, please disconnect it as it alters your IP address configuration.</p>
+    <div class="container popup hidden" id="terminalPopup">
+        <p><strong>+++ CONNECTION ESTABLISHED +++</strong></p>
+        <p>Authenticating... Injecting signals...</p>
+        <p><strong>! ALERT: IP address mismatch detected !</strong></p>
+        <p>Please disconnect VPN/Proxy and retry.</p>
     </div>
+
+    <footer class="watermark">[::] Developed by Zayd Software Co.</footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
