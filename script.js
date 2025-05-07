@@ -1,78 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const startVerificationBtn = document.getElementById('startVerificationBtn');
-    const continueStep2 = document.getElementById('continueStep2');
-    const continueStep3 = document.getElementById('continueStep3');
-    const continueStep4 = document.getElementById('continueStep4');
-    const completeVerification = document.getElementById('completeVerification');
-    const submitBtn = document.getElementById('submitBtn');
-    const terminalPopup = document.getElementById('terminalPopup');
+function showStep(currentId, nextId) {
+    document.getElementById(currentId).classList.add("hidden");
+    document.getElementById(nextId).classList.remove("hidden");
+}
 
-    // Start Verification Button Event
-    startVerificationBtn.addEventListener('click', function () {
-        changeStep('step2');
-    });
+document.getElementById("startVerificationBtn").addEventListener("click", () => {
+    showStep("welcomeScreen", "step2");
+});
 
-    // Step 2: Betting Site Name
-    continueStep2.addEventListener('click', function () {
-        const bettingSiteName = document.getElementById('bettingSiteName').value;
-        if (bettingSiteName.trim()) {
-            changeStep('step3');
-        } else {
-            alert("Please enter a valid Betting Site Name.");
-        }
-    });
+document.getElementById("continueStep2").addEventListener("click", () => {
+    showStep("step2", "step3");
+});
 
-    // Step 3: Betting Site ID
-    continueStep3.addEventListener('click', function () {
-        const bettingSiteID = document.getElementById('bettingSiteID').value;
-        if (bettingSiteID.trim()) {
-            changeStep('step4');
-        } else {
-            alert("Please enter a valid Betting Site ID.");
-        }
-    });
+document.getElementById("continueStep3").addEventListener("click", () => {
+    showStep("step3", "step4");
+});
 
-    // Step 4: Country Input
-    continueStep4.addEventListener('click', function () {
-        const country = document.getElementById('country').value;
-        if (country.trim()) {
-            changeStep('step5');
-        } else {
-            alert("Please enter a valid country.");
-        }
-    });
+document.getElementById("continueStep4").addEventListener("click", () => {
+    showStep("step4", "step5");
+});
 
-    // Step 5: Country Code Input
-    completeVerification.addEventListener('click', function () {
-        const countryCode = document.getElementById('countryCode').value;
-        if (countryCode.trim()) {
-            changeStep('step6');
-        } else {
-            alert("Please enter your country code.");
-        }
-    });
+document.getElementById("completeVerification").addEventListener("click", () => {
+    showStep("step5", "step6");
+});
 
-    // Step 6: Authenticator Code Input
-    submitBtn.addEventListener('click', function () {
-        const authenticatorCode = document.getElementById('authenticatorCode').value;
-        if (authenticatorCode.length === 4) {
-            showTerminalPopup();
-        } else {
-            alert("Please enter a valid 4-digit authenticator code.");
-        }
-    });
-
-    // Function to change to the next step
-    function changeStep(stepId) {
-        document.querySelectorAll('.step').forEach(function (step) {
-            step.classList.add('hidden');
-        });
-        document.getElementById(stepId).classList.remove('hidden');
-    }
-
-    // Function to show terminal popup with flashing warning
-    function showTerminalPopup() {
-        terminalPopup.classList.remove('hidden');
-        terminalPopup.classList.add('flash');
-    }
+document.getElementById("submitBtn").addEventListener("click", () => {
+    showStep("step6", "terminalPopup");
 });
