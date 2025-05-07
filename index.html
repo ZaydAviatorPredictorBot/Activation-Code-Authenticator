@@ -4,111 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zayd Software Company Activation</title>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: black;
-            color: green;
-            margin: 0;
-            padding: 0;
-        }
-        .watermark {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            opacity: 0.5;
-            font-size: 12px;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .btn {
-            background-color: #333;
-            color: green;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            margin: 10px;
-            font-size: 16px;
-            text-transform: uppercase;
-        }
-        .btn:hover {
-            background-color: green;
-            color: black;
-        }
-        .hidden {
-            display: none;
-        }
-        .popup {
-            position: fixed;
-            top: 20%;
-            left: 20%;
-            background-color: red;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 60%;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-            z-index: 9999;
-        }
-        .popup p {
-            margin: 10px 0;
-        }
-        .popup.flash {
-            animation: flash 1s infinite alternate;
-        }
-        @keyframes flash {
-            0% { background-color: red; }
-            100% { background-color: yellow; color: black; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <h1>Welcome to the Zayd Software Company Activation</h1>
         <p>Please ensure you have the correct credentials to proceed.</p>
-
+        
         <button class="btn" id="startVerificationBtn">Start Verification</button>
     </div>
 
     <div class="watermark">Software developed by Zayd</div>
 
     <!-- Step 2: Betting Site Name -->
-    <div class="container hidden" id="step2">
+    <div class="container step hidden" id="step2">
         <h2>Enter your Betting Site Name (No spaces):</h2>
         <input type="text" id="bettingSiteName" />
         <button class="btn" id="continueStep2">Continue</button>
     </div>
 
     <!-- Step 3: Betting Site ID -->
-    <div class="container hidden" id="step3">
+    <div class="container step hidden" id="step3">
         <h2>Enter your Betting Site ID:</h2>
         <input type="text" id="bettingSiteID" />
         <button class="btn" id="continueStep3">Continue</button>
     </div>
 
     <!-- Step 4: Registered Country -->
-    <div class="container hidden" id="step4">
+    <div class="container step hidden" id="step4">
         <h2>Enter your Registered Country:</h2>
         <input type="text" id="country" />
         <button class="btn" id="continueStep4">Continue</button>
     </div>
 
     <!-- Step 5: Country Code -->
-    <div class="container hidden" id="step5">
+    <div class="container step hidden" id="step5">
         <h2>Enter your Country Code:</h2>
         <input type="text" id="countryCode" />
         <button class="btn" id="completeVerification">Complete Verification</button>
     </div>
 
     <!-- Step 6: Authenticator Code -->
-    <div class="container hidden" id="step6">
+    <div class="container step hidden" id="step6">
         <h2>Enter your 4-Digit Authenticator Code:</h2>
         <input type="text" id="authenticatorCode" />
         <button class="btn" id="submitBtn">Submit</button>
@@ -123,61 +61,6 @@
         <p><strong>Note:</strong> If you're using a VPN/Proxy, please disconnect it as it alters your IP address configuration.</p>
     </div>
 
-    <script>
-        const startVerificationBtn = document.getElementById('startVerificationBtn');
-        const continueStep2 = document.getElementById('continueStep2');
-        const continueStep3 = document.getElementById('continueStep3');
-        const continueStep4 = document.getElementById('continueStep4');
-        const completeVerification = document.getElementById('completeVerification');
-        const submitBtn = document.getElementById('submitBtn');
-        const terminalPopup = document.getElementById('terminalPopup');
-
-        startVerificationBtn.addEventListener('click', () => {
-            document.querySelector('.container').innerHTML = '';
-            document.getElementById('startVerificationBtn').classList.add('hidden');
-            document.getElementById('step2').classList.remove('hidden');
-        });
-
-        continueStep2.addEventListener('click', () => {
-            const bettingSiteName = document.getElementById('bettingSiteName').value;
-            if (bettingSiteName) {
-                document.getElementById('step2').classList.add('hidden');
-                document.getElementById('step3').classList.remove('hidden');
-            }
-        });
-
-        continueStep3.addEventListener('click', () => {
-            const bettingSiteID = document.getElementById('bettingSiteID').value;
-            if (bettingSiteID) {
-                document.getElementById('step3').classList.add('hidden');
-                document.getElementById('step4').classList.remove('hidden');
-            }
-        });
-
-        continueStep4.addEventListener('click', () => {
-            const country = document.getElementById('country').value;
-            if (country) {
-                document.getElementById('step4').classList.add('hidden');
-                document.getElementById('step5').classList.remove('hidden');
-            }
-        });
-
-        completeVerification.addEventListener('click', () => {
-            const countryCode = document.getElementById('countryCode').value;
-            if (countryCode) {
-                document.getElementById('step5').classList.add('hidden');
-                document.getElementById('step6').classList.remove('hidden');
-            }
-        });
-
-        submitBtn.addEventListener('click', () => {
-            const authenticatorCode = document.getElementById('authenticatorCode').value;
-            if (authenticatorCode.length === 4) {
-                document.getElementById('step6').classList.add('hidden');
-                terminalPopup.classList.remove('hidden');
-                terminalPopup.classList.add('flash');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
