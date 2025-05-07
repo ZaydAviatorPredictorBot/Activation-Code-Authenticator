@@ -115,33 +115,3 @@ input, button {
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
 }
-
-/* Step transitions */
-#step2, #step3, #step4, #step5, #step6 {
-    display: none;
-}
-
-#step2, #step3, #step4, #step5, #step6 {
-    transition: all 0.3s ease-in-out;
-}
-
-/* Colors for each step */
-#step2 {
-    color: #1E90FF; /* Blue */
-}
-
-#step3 {
-    color: #FF6347; /* Red */
-}
-
-#step4 {
-    color: #32CD32; /* Green */
-}
-
-#step5 {
-    color: #FFA500; /* Orange */
-}
-
-#step6 {
-    color: #800080; /* Purple */
-}
