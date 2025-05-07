@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Welcome page transition
     startVerificationBtn.addEventListener('click', () => {
+        // Hide the welcome screen and show the first step
         changeStep('step2');
     });
 
