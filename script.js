@@ -1,79 +1,117 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const startVerificationBtn = document.getElementById('startVerificationBtn');
-    const continueStep2 = document.getElementById('continueStep2');
-    const continueStep3 = document.getElementById('continueStep3');
-    const continueStep4 = document.getElementById('continueStep4');
-    const completeVerification = document.getElementById('completeVerification');
-    const submitBtn = document.getElementById('submitBtn');
-    const terminalPopup = document.getElementById('terminalPopup');
+/* General styles */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: #00FF00;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
 
-    // Welcome page transition
-    startVerificationBtn.addEventListener('click', () => {
-        // Hide the welcome screen and show the first step
-        changeStep('step2');
-    });
+/* Terminal UI Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #00FF00;
+    z-index: 1;
+}
 
-    // Step 2: Betting Site Name
-    continueStep2.addEventListener('click', () => {
-        const bettingSiteName = document.getElementById('bettingSiteName').value;
-        if (bettingSiteName) {
-            changeStep('step3');
-        } else {
-            alert("Please enter a valid Betting Site Name.");
-        }
-    });
+h1, h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+}
 
-    // Step 3: Betting Site ID
-    continueStep3.addEventListener('click', () => {
-        const bettingSiteID = document.getElementById('bettingSiteID').value;
-        if (bettingSiteID) {
-            changeStep('step4');
-        } else {
-            alert("Please enter a valid Betting Site ID.");
-        }
-    });
+input {
+    background-color: black;
+    color: #00FF00;
+    border: 1px solid #00FF00;
+    padding: 10px;
+    margin: 10px;
+    font-size: 18px;
+    text-align: center;
+}
 
-    // Step 4: Country Input
-    continueStep4.addEventListener('click', () => {
-        const country = document.getElementById('country').value;
-        if (country) {
-            changeStep('step5');
-        } else {
-            alert("Please enter a valid country.");
-        }
-    });
+button {
+    background-color: #1E1E1E;
+    color: #FF5733;
+    border: 2px solid #FF5733;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    // Step 5: Country Code Input
-    completeVerification.addEventListener('click', () => {
-        const countryCode = document.getElementById('countryCode').value;
-        if (countryCode) {
-            changeStep('step6');
-        } else {
-            alert("Please enter your country code.");
-        }
-    });
+button:hover {
+    background-color: #FF5733;
+    color: black;
+}
 
-    // Step 6: Authenticator Code Input
-    submitBtn.addEventListener('click', () => {
-        const authenticatorCode = document.getElementById('authenticatorCode').value;
-        if (authenticatorCode.length === 4) {
-            showTerminalPopup();
-        } else {
-            alert("Please enter a valid 4-digit authenticator code.");
-        }
-    });
+button:focus {
+    outline: none;
+}
 
-    // Function to change to the next step
-    function changeStep(stepId) {
-        document.querySelectorAll('.step').forEach(step => {
-            step.classList.add('hidden');
-        });
-        document.getElementById(stepId).classList.remove('hidden');
+.watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.5;
+    font-size: 14px;
+    color: #800080;
+    font-style: italic;
+}
+
+/* Hidden elements */
+.hidden {
+    display: none;
+}
+
+/* Step-specific styles */
+.step {
+    display: none;
+}
+
+/* Flashing popup styles */
+.popup {
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    text-align: center;
+}
+
+.popup p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.popup.flash {
+    animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+    0% {
+        background-color: #FF0000;
     }
-
-    // Function to show terminal popup with flashing warning
-    function showTerminalPopup() {
-        terminalPopup.classList.remove('hidden');
-        terminalPopup.classList.add('flash');
+    100% {
+        background-color: #FFFF00;
+        color: black;
     }
-});
+}
+
+/* Terminal feel for input fields */
+input, button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
